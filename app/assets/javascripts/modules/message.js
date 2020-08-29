@@ -4,7 +4,7 @@ $(function(){
       let html =
         `<div class="message" data-message-id="${message.id}">
           <div class="message__info">
-            <p class="message__user-name">
+            <p class="message__user">
             ${message.user_name}
             </p>
             <p class="message__created-at">
@@ -23,7 +23,7 @@ $(function(){
       let html =
         `<div class="message" data-message-id="${message.id}">
           <div class="message__info">
-            <p class="message__user-name">
+            <p class="message__user">
             ${message.user_name}
             </p>
             <p class="message__created-at">
@@ -40,7 +40,7 @@ $(function(){
     };
   }
 
-  $('.form').on('submit', function(e){
+  $('.from').on('submit', function(e){
     e.preventDefault();
     let formData = new FormData(this);
     let url = $(this).attr('action');
@@ -54,7 +54,7 @@ $(function(){
     })
     .done(function(data){
       let html = buildHTML(data);
-      $('.messages').append(html);
+      $('.main-chat').append(html);
       $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
       $('.form')[0].reset();
       $('.form__submit').prop('disabled', false);
