@@ -1,10 +1,10 @@
 $(function(){
-  function buildHTML(massage){
+  function buildHTML(message){
     if ( message.image ) {
       let html =
         `<div class="message" data-message-id="${message.id}">
           <div class="message__info">
-            <p class="message__user-name">
+            <p class="message__user">
             ${message.user_name}
             </p>
             <p class="message__created-at">
@@ -23,7 +23,7 @@ $(function(){
       let html =
         `<div class="message" data-message-id="${message.id}">
           <div class="message__info">
-            <p class="message__user-name">
+            <p class="message__user">
             ${message.user_name}
             </p>
             <p class="message__created-at">
@@ -46,7 +46,7 @@ $(function(){
     let url = $(this).attr('action');
     $.ajax({
       url: url,
-      type: "GET",
+      type: "POST",
       data: formData,
       dataType: 'json',
       processData: false,
