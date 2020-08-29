@@ -1,5 +1,5 @@
 $(function(){
-  function buildHTML(message){
+  function buildHTML(massage){
     if ( message.image ) {
       let html =
         `<div class="message" data-message-id="${message.id}">
@@ -40,13 +40,13 @@ $(function(){
     };
   }
 
-  $('.form').on('submit', function(e){
+  $('.from').on('submit', function(e){
     e.preventDefault();
     let formData = new FormData(this);
     let url = $(this).attr('action');
     $.ajax({
       url: url,
-      type: "POST",
+      type: "GET",
       data: formData,
       dataType: 'json',
       processData: false,
@@ -54,7 +54,7 @@ $(function(){
     })
     .done(function(data){
       let html = buildHTML(data);
-      $('.messages').append(html);
+      $('.main-chat').append(html);
       $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
       $('.form')[0].reset();
       $('.form__submit').prop('disabled', false);
